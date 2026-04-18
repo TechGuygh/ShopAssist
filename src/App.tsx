@@ -39,10 +39,11 @@ import {
   PieChart,
   Pie
 } from 'recharts';
-import { format, startOfMonth, endOfMonth, subMonths } from 'date-fns';
+import { format, startOfMonth, endOfMonth, subMonths, addDays, parseISO, isBefore } from 'date-fns';
 import { cn, formatCurrency } from './lib/utils';
 import { Product, Sale, Expense, BankAccount, Supplier, User, SupplierInvoice, SupplierPayment, Role } from './types';
 import toast, { Toaster } from 'react-hot-toast';
+import { Analytics } from '@vercel/analytics/react';
 
 // Components
 const Card = ({ children, className }: { children: React.ReactNode, className?: string, key?: any }) => (
@@ -1470,6 +1471,7 @@ export default function App() {
           )}
         </div>
       </main>
+      <Analytics />
     </div>
   );
 }
